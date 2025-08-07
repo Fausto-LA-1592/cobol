@@ -1,25 +1,80 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Programa COBOL - A.B.M. Clientes</title>
-<style>
-    body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 2rem;
-    background-color: #f4f4f4;
-    }
-    img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dos columnas con scroll independiente</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Evita el scroll global */
+        }
+        
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+        
+        .left-column {
+            width: 50%;
+            background-color: #f0f0f0;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow: hidden; /* Sin scroll */
+            position: relative;
+        }
+        
+        .left-content {
+            /* Esto mantendrá el contenido fijo */
+            position: sticky;
+            top: 0;
+        }
+        
+        .right-column {
+            width: 50%;
+            overflow-y: auto; /* Scroll vertical solo para esta columna */
+            height: 100vh;
+        }
+        
+        .image-container {
+            /* Asegura que la imagen ocupe todo el espacio disponible */
+            min-height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+    </style>
 </head>
 <body>
-<img src="assets/abm_clientes.png" alt="Imagen de Programa COBOL - A.B.M. Clientes">
+    <div class="container">
+        <!-- Columna izquierda (fija) -->
+        <div class="left-column">
+            <div class="left-content">
+                <h1>Contenido fijo</h1>
+                <p>Este contenido permanecerá visible siempre.</p>
+                <p>No se moverá al hacer scroll.</p>
+                <!-- Puedes agregar más contenido aquí -->
+            </div>
+        </div>
+        
+        <!-- Columna derecha (con scroll) -->
+        <div class="right-column">
+            <div class="image-container">
+                <!-- Reemplaza esto con tu imagen -->
+                <img src="https://fausto-la-1592.github.io/cobol/" alt="ABM Clientes">
+                
+                <!-- Si necesitas que haya espacio para hacer scroll (si la imagen no es muy alta) -->
+                <div style="height: 200vh;"></div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
