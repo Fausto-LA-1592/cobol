@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow: hidden; /* Evita el scroll global */
+            overflow: hidden;
         }
         
         .container {
@@ -19,54 +19,69 @@
         
         .left-column {
             width: 50%;
-            background-color: #a7b3bd; /* Color actualizado */
+            background-color: #a7b3bd;
             padding: 20px;
             box-sizing: border-box;
-            overflow: hidden; /* Sin scroll */
+            overflow: hidden;
             position: relative;
-        }
-        
-        .left-content {
-            /* Esto mantendrá el contenido fijo */
-            position: sticky;
-            top: 0;
         }
         
         .right-column {
             width: 50%;
-            overflow-y: auto; /* Scroll vertical solo para esta columna */
+            overflow-y: auto;
             height: 100vh;
         }
         
-.image-container {
-    min-height: 100%;
-    display: flex;
-    align-items: flex-start;  /* ← Línea modificada */
-    justify-content: center;
-}
+        .image-container {
+            min-height: 100%;
+            display: flex;
+            align-items: flex-start; /* Default para desktop */
+            justify-content: center;
+        }
         
         .image-container img {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
+            display: block; /* Elimina espacio fantasma debajo de la imagen */
         }
-    /* Agrega esto a tu CSS */
-    .video-container {
-        position: relative;
-        padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
-        height: 0;
-        overflow: hidden;
-        width: 100%;
-    }
-    
-    .video-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-</style>
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            width: 100%;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Solo para móviles */
+        @media (max-width: 767px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .left-column, .right-column {
+                width: 100%;
+            }
+            
+            .left-column {
+                padding: 0;
+            }
+            
+            .image-container {
+                align-items: center; /* Centrado solo en móvil */
+                padding: 10px;
+                box-sizing: border-box;
+            }
+        }
     </style>
 </head>
 <body>
