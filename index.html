@@ -38,13 +38,12 @@
             height: 100vh;
         }
         
-        .image-container {
-            /* Asegura que la imagen ocupe todo el espacio disponible */
-            min-height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.image-container {
+    min-height: 100%;
+    display: flex;
+    align-items: flex-start;  /* ← Línea modificada */
+    justify-content: center;
+}
         
         .image-container img {
             max-width: 100%;
